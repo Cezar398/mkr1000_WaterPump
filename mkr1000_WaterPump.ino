@@ -1,5 +1,9 @@
+#include <FlashAsEEPROM.h>
+#include <FlashStorage.h>
 #include "secrets.h"
 #include "wifi_controller.h"
+
+WiFiController WiFiC;
 
 void setup() {
 
@@ -10,15 +14,16 @@ void setup() {
     while(!Serial){;}
   }
   
-
-
-  WiFiController WiFiC;
-
-  WiFiC.initializare();
+  if(!(WiFiC.connect()))
+  {
+    while(true)
+    {
+      delay(10);
+    }
+  }
 
 }
 
 void loop() {
-  
-
+    WiFiC.start_server();
 }
