@@ -1,9 +1,24 @@
+#include "secrets.h"
+#include "wifi_controller.h"
+
 void setup() {
-  // put your setup code here, to run once:
+
+  if(DEV_MODE)
+  {
+    Serial.begin(9600);
+
+    while(!Serial){;}
+  }
+  
+
+
+  WiFiController WiFiC;
+
+  WiFiC.initializare();
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  
 
 }
