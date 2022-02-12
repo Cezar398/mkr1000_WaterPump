@@ -1,4 +1,4 @@
-char WIFI_SSID[] = "Cezar(2.4 Ghz)";
-char WIFI_PASSWORD[] = "Cezarica1";
+char WIFI_SSID[] = "";
+char WIFI_PASSWORD[] = "";
 
 const bool DEV_MODE = true;
