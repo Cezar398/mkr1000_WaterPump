@@ -1,11 +1,11 @@
-#include <FlashAsEEPROM.h>
-#include <FlashStorage.h>
 #include "secrets.h"
 #include "wifi_controller.h"
 
 WiFiController WiFiC;
 
 void setup() {
+
+  pinMode(2, OUTPUT);
 
   if(DEV_MODE)
   {

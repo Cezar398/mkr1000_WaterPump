@@ -205,10 +205,12 @@ public:
             if(header.indexOf("GET /btn/start_on") >= 0)
             {
               BTN_START = true;
+              digitalWrite(2, HIGH);
             }
             else if(header.indexOf("GET /btn/start_off") >= 0)
             {
               BTN_START = false;
+              digitalWrite(2, LOW);
             }
 
 
@@ -216,29 +218,8 @@ public:
 
             client.println("<body>");
 
-            client.println("<div class=\"container\">");
-            if(header.indexOf("POST /btn/start_off") >= 0)
-              client.println("<form method='GET' action='/btn/start_on'>");
-            else
-              client.println("<form method='GET' action='/btn/start_off'>");
-            if(BTN_START == false)
-              client.println("<input type=\"submit\" class=\"btn btn-primary\"  value='1'>");
-            else if(BTN_START == true)
-              client.println("<input type=\"submit\" class=\"btn btn-primary\"  value='2'>");
-            client.println("</form>");
-            client.println("</div>");
-
-            client.println("<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>");
-            ;
-
-            client.println("<script>"
-
-            "if(window.location.href != window.location.hostname)"
-            "{"
-            "document.location.href=''"
-            "}"
-            "</script>");
-            
+            client.println("<a href='/btn/start_on'>LED ON</a>");
+            client.println("<a href='/btn/start_off'>LED OFF</a>");
             client.println("</body>");
 
             client.println("</html>");
